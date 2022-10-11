@@ -3,18 +3,41 @@
     "keyboard_name": "skull",
     "maintainer": "glebsexy",
     "bootloader": "rp2040",
-    "diode_direction": "COL2ROW",
     "features": {
         "bootmagic": true,
         "command": false,
         "console": false,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
+        "rgblight": true
     },
+    "diode_direction": "COL2ROW",
     "matrix_pins": {
-        "cols": ["C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2"],
-        "rows": ["D1", "D1", "D1", "D1"]
+        "direct": [
+            ["GP14", "GP15", "GP26", "GP27", "GP28"],
+            ["GP9", "GP10", "GP11", "GP12", "GP13"],
+            ["GP4", "GP5", "GP6", "GP7", "GP8"],
+            [null, null, null, "GP29", "GP2"]            
+        ]
+    },
+    "split": {
+        "enabled": true,
+        "main": "left",
+        "matrix_pins": {
+            "right": {
+                "direct": [
+                    ["GP28", "GP27", "GP26","GP15", "GP14"],
+                    ["GP13", "GP12", "GP11", "GP10", "GP9"],
+                    ["GP8", "GP7", "GP6", "GP5", "GP4"],
+                    ["GP2", "GP29", null, null, null]                    
+                ]
+            }
+        },
+        "soft_serial_pin": "GP1",
+        "transport": {
+            "protocol": "serial"
+        }
     },
     "processor": "RP2040",
     "url": "",
@@ -61,6 +84,17 @@
                 { "matrix": [3, 6], "x": 6.5, "y": 3.5 },
                 { "matrix": [3, 7], "x": 7.5, "y": 3.25 }
             ]
+        }
+    },
+    "rgblight": {
+        "pin": "GP3",
+        "split": true,
+        "split_count": [10, 10],
+        "hue_steps": 10,
+        "saturation_steps": 17,
+        "brightness_steps": 17,
+        "animations": {
+            "breathing": true
         }
     }
 }
