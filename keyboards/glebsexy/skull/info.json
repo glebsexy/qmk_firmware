@@ -33,17 +33,14 @@
                     ["GP2", "GP29", null, null, null]                    
                 ]
             }
-        },
-        "transport": {
-            "protocol": "serial"
         }
     },
     "processor": "RP2040",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x0000",
-        "vid": "0xFEED"
+        "pid": "0x61EB",
+        "vid": "0x0001"
     },
     "layouts": {
         "LAYOUT_split_3x5_2": {
