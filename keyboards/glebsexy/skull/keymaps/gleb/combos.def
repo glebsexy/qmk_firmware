@@ -1,0 +1,39 @@
+//   name     result    chord keys
+
+// action keys
+COMB(sdBspc,      KC_BSPC,               KC_S, KC_D) // backspace
+COMB(sdfAltBspc,  LALT(KC_BSPC),         KC_S, KC_D, KC_F) // delete word
+COMB(asdCmdBspc,  LCMD(KC_BSPC),         LCMD_T(KC_A), KC_S, KC_D) // delete line
+COMB(gbTab,       KC_TAB,                KC_G, KC_B)
+COMB(gtEsc,       KC_ESC,                KC_G, KC_T)
+COMB(hnEnter,     KC_ENT,                KC_H, KC_N) // enter
+COMB(hySftEnter,  LSFT(KC_ENT),          KC_H, KC_Y) // shift enter
+COMB(kjSpace,     KC_SPC,                KC_K, KC_J) // space
+COMB(rfRight,     KC_RIGHT,              KC_R, KC_F) // arrow right
+COMB(edLeft,      KC_LEFT,               KC_E, KC_D) // arrow left
+COMB(kiAltRight,  RALT(KC_RIGHT),        KC_K, KC_I) // alt right (move, select, tabs, etc.)
+COMB(ujAltLeft,   RALT(KC_LEFT),         KC_U, KC_J) // alt left
+COMB(werPlay,     KC_MPLY,               KC_W, KC_E, KC_R) // media play
+
+// symbols
+COMB(hjDash,      KC_MINS,               KC_H, KC_J)
+COMB(yuEquals,    KC_EQL,                KC_Y, KC_U)
+COMB(nmQuot,      KC_QUOT,               KC_N, KC_M)
+COMB(cdDot,       RALT(RCTL(KC_DOT)),    KC_COMM, KC_DOT)
+COMB(dmComm,      RALT(RCTL(KC_COMM)),   KC_COMM, KC_M)
+
+COMB(arrL,        RALT(RSFT(KC_RBRC)),   KC_LCBR, KC_LPRN) // →
+COMB(arrR,        RALT(KC_RBRC),         KC_RCBR, KC_RPRN) // ←
+COMB(arrU,        RALT(KC_QUOT),         KC_LCBR, KC_RCBR) // ↑
+COMB(arrD,        RALT(RSFT(KC_QUOT)),   KC_LPRN, KC_RPRN) // ↓
+
+// Russian letters
+COMB(opBacksl,    KC_BSLS,               KC_O, KC_P) // ё
+COMB(uiLbrc,      KC_LBRC,               KC_U, KC_I) // х
+COMB(ioRbrc,      KC_RBRC,               KC_I, KC_O) // ъ
+
+// commands
+COMB(bvUndo,      RGUI(KC_Z),            KC_B, KC_V) // undo
+COMB(ertF19,      KC_F19,                KC_R, KC_T, KC_E) // fullscreen
+COMB(yiF2,        KC_F2,                 KC_Y, KC_I) // screenshot
+COMB(kjlCmdSpc,   RGUI(KC_SPC),          KC_J, KC_K, KC_L) // language switch
