@@ -81,8 +81,10 @@
             ]
         }
     },
+    "ws2812": {
+        "pin": "GP3"
+    },
     "rgblight": {
-        "pin": "GP3",
         "led_count": 20,
         "split": true,
         "split_count": [10, 10],
