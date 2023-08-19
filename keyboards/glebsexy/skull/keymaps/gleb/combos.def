@@ -20,7 +20,7 @@ COMB(werPlay,     KC_MPLY,               KC_W, KC_E, KC_R) // media play
 COMB(hjDash,      KC_MINS,               KC_H, KC_J)
 COMB(yuEquals,    KC_EQL,                KC_Y, KC_U)
 COMB(nmQuot,      KC_QUOT,               KC_N, KC_M)
-COMB(cdDot,       RALT(RCTL(KC_DOT)),    KC_COMM, KC_DOT)
+COMB(cdDot,       RALT(RCTL(KC_DOT)),    KC_COMM, RCTL_T(KC_DOT))
 COMB(dmComm,      RALT(RCTL(KC_COMM)),   KC_COMM, KC_M)
 
 COMB(arrL,        RALT(RSFT(KC_RBRC)),   KC_LCBR, KC_LPRN) // →
