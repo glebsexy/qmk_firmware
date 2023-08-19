@@ -4,10 +4,11 @@
 COMB(sdBspc,      KC_BSPC,               KC_S, KC_D) // backspace
 COMB(sdfAltBspc,  LALT(KC_BSPC),         KC_S, KC_D, KC_F) // delete word
 COMB(asdCmdBspc,  LCMD(KC_BSPC),         LCMD_T(KC_A), KC_S, KC_D) // delete line
-COMB(gbTab,       KC_TAB,                KC_G, KC_B)
-COMB(gtEsc,       KC_ESC,                KC_G, KC_T)
+COMB(gbTab,       KC_TAB,                KC_G, KC_B) // tab
+COMB(gtEsc,       KC_ESC,                KC_G, KC_T) // esc
 COMB(hnEnter,     KC_ENT,                KC_H, KC_N) // enter
 COMB(hySftEnter,  LSFT(KC_ENT),          KC_H, KC_Y) // shift enter
+COMB(klDel,       KC_DEL,                KC_K, KC_L) // forward delete
 COMB(kjSpace,     KC_SPC,                KC_K, KC_J) // space
 COMB(rfRight,     KC_RIGHT,              KC_R, KC_F) // arrow right
 COMB(edLeft,      KC_LEFT,               KC_E, KC_D) // arrow left
