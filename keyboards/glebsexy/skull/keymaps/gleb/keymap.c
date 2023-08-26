@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h"
 
+static fast_timer_t tap_timer = 0;
+
 enum layer_names {
     BASE,
     SYM,
@@ -45,9 +47,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         )
 };
 
-// hold for cmd, tap for layer
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // reset timer for combos when typing
+    if (record->event.pressed) {
+        if (IS_ALPHA_KEY(keycode, record)) {
+            tap_timer = timer_read_fast();
+        }
+    }
     switch (keycode) {
+        // hold for cmd, tap for layer
         case LT(BASE, KC_RCMD):
             if (record->tap.count && record->event.pressed) {
                 layer_move(BASE); // Intercept tap function to move to base
@@ -59,6 +67,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     return true;
+}
+
+// COMBOS
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    if (timer_elapsed_fast(tap_timer) < COMBO_INSTANT_TAP_MS) {
+        return false;
+    }
 }
 
 // TAPDANCE
