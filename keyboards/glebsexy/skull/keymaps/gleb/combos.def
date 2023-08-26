@@ -10,8 +10,10 @@ COMB(hnEnter,     KC_ENT,                KC_H, KC_N) // enter
 COMB(hySftEnter,  LSFT(KC_ENT),          KC_H, KC_Y) // shift enter
 COMB(klDel,       KC_DEL,                KC_K, KC_L) // forward delete
 COMB(kjSpace,     KC_SPC,                KC_K, KC_J) // space
-COMB(rfRight,     KC_RIGHT,              KC_R, KC_F) // arrow right
-COMB(edLeft,      KC_LEFT,               KC_E, KC_D) // arrow left
+COMB(arrUp,       KC_UP,                 KC_E, KC_R) // ↑ arrow up
+COMB(arrDn,       KC_DOWN,               KC_R, KC_F) // ↓ arrow down
+COMB(arrRght,     KC_RIGHT,              KC_R, KC_F) // → arrow right
+COMB(arrLft,      KC_LEFT,               KC_E, KC_D) // ← arrow left
 COMB(kiAltRight,  RALT(KC_RIGHT),        KC_K, KC_I) // alt right (move, select, tabs, etc.)
 COMB(ujAltLeft,   RALT(KC_LEFT),         KC_U, KC_J) // alt left
 COMB(werPlay,     KC_MPLY,               KC_W, KC_E, KC_R) // media play
@@ -23,10 +25,10 @@ COMB(nmQuot,      KC_QUOT,               KC_N, KC_M)
 COMB(cdDot,       RALT(RCTL(KC_DOT)),    KC_COMM, RCTL_T(KC_DOT))
 COMB(dmComm,      RALT(RCTL(KC_COMM)),   KC_COMM, KC_M)
 
-COMB(arrL,        RALT(RSFT(KC_RBRC)),   KC_LCBR, KC_LPRN) // →
-COMB(arrR,        RALT(KC_RBRC),         KC_RCBR, KC_RPRN) // ←
-COMB(arrU,        RALT(KC_QUOT),         KC_LCBR, KC_RCBR) // ↑
-COMB(arrD,        RALT(RSFT(KC_QUOT)),   KC_LPRN, KC_RPRN) // ↓
+COMB(symArrL,     RALT(RSFT(KC_RBRC)),   KC_LCBR, KC_LPRN) // → symbol
+COMB(symArrR,     RALT(KC_RBRC),         KC_RCBR, KC_RPRN) // ← symbol
+COMB(symArrU,     RALT(KC_QUOT),         KC_LCBR, KC_RCBR) // ↑ symbol
+COMB(symArrD,     RALT(RSFT(KC_QUOT)),   KC_LPRN, KC_RPRN) // ↓ symbol
 
 // Russian letters
 COMB(opBacksl,    KC_BSLS,               KC_O, KC_P) // ё
