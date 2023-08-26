@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "keymap.h"
 #include "g/keymap_combo.h"
 
 static fast_timer_t tap_timer = 0;
@@ -17,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT_T(KC_Z),   LCTL_T(KC_X),   KC_C,   KC_V,   KC_B,            KC_N,   KC_M,   KC_COMM,   RCTL_T(KC_DOT),   RSFT_T(KC_SLSH),
         
         KC_LCMD,   LT(SYM, KC_SPC),    // left
-        TT(NAV),   LT(BASE, KC_RCMD)   // right
+        TT(NAV),   RCMD_T(KC_NO)   // right
         ),
 
     [SYM] = LAYOUT_split_3x5_2(
@@ -56,13 +57,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     switch (keycode) {
         // hold for cmd, tap for layer
-        case LT(BASE, KC_RCMD):
+        case RCMD_T(KC_NO):
             if (record->tap.count && record->event.pressed) {
                 layer_move(BASE); // Intercept tap function to move to base
-            } else if (record->event.pressed) {
-                register_mods(MOD_MASK_GUI); // Intercept hold function to hold CMD
-            } else if (!record->event.pressed) {
-                unregister_mods(MOD_MASK_GUI); // Unpress CMD
+            } else {
+                return true; // process hold normally
             }
             return false;
     }
@@ -75,6 +74,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
     if (timer_elapsed_fast(tap_timer) < COMBO_INSTANT_TAP_MS) {
         return false;
     }
+    return true;
 }
 
 // TAPDANCE
