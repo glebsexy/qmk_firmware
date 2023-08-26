@@ -14,8 +14,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCMD_T(KC_A),   KC_S,           KC_D,   KC_F,   KC_G,            KC_H,   KC_J,   KC_K,      KC_L,             RALT_T(KC_SCLN),
         LSFT_T(KC_Z),   LCTL_T(KC_X),   KC_C,   KC_V,   KC_B,            KC_N,   KC_M,   KC_COMM,   RCTL_T(KC_DOT),   RSFT_T(KC_SLSH),
         
-        KC_LCMD, LT(SYM, KC_SPC),    // left
-        TT(NAV),  KC_RCMD  // right
+        KC_LCMD,   LT(SYM, KC_SPC),    // left
+        TT(NAV),   LT(BASE, KC_RCMD)   // right
         ),
 
     [SYM] = LAYOUT_split_3x5_2(
@@ -44,6 +44,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,    _______     // right
         )
 };
+
+// hold for cmd, tap for layer
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(BASE, KC_RCMD):
+            if (record->tap.count && record->event.pressed) {
+                layer_move(BASE); // Intercept tap function to move to base
+            } else if (record->event.pressed) {
+                register_mods(MOD_MASK_GUI); // Intercept hold function to hold CMD
+            } else if (!record->event.pressed) {
+                unregister_mods(MOD_MASK_GUI); // Unpress CMD
+            }
+            return false;
+    }
+    return true;
+}
 
 
 //Tap Dance Declarations
