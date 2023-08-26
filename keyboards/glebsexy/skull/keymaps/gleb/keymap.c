@@ -89,16 +89,16 @@ const rgblight_segment_t PROGMEM my_layer0_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 0, HSV_RED}
 );
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 6, HSV_ORANGE},
-    {10, 6, HSV_ORANGE}
+    {0, 6, 19, 255, 255},
+    {10, 6, 19, 255, 255}
 );
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 6, HSV_PURPLE},
     {10, 6, HSV_PURPLE}
 );
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 6, HSV_BLUE},
-    {10, 6, HSV_GREEN}
+    {0, 10, HSV_AZURE},
+    {10, 10, HSV_GREEN}
 );
 const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     // pink-ish white
