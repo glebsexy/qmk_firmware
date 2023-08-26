@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, KC_LALT, KC_LBRC, KC_RBRC, LSFT(LALT(KC_MINS)),         KC_RCMD, KC_1, KC_2, KC_3, KC_RSFT,
 
         TO(BASE), _______, // left
-        TO(NAV), TO(BASE)  // right
+        TO(NAV), _______  // right
         ),
 
     [NAV] = LAYOUT_split_3x5_2(
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, RGB_TOG, RGB_HUI, KC_F3, KC_F4,                         KC_RCMD,  KC_VOLD, KC_VOLU, KC_RCTL,  KC_RSFT,
 
         TO(BASE), _______, // left
-        TO(NAV), TO(BASE)  // right
+        TO(NAV), _______  // right
         ),
 
     [EMPTY] = LAYOUT_split_3x5_2(
