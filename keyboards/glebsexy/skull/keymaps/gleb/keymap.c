@@ -60,10 +60,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RCMD_T(KC_NO):
             if (record->tap.count && record->event.pressed) {
                 layer_move(BASE); // Intercept tap function to move to base
-            } else {
-                return true; // process hold normally
+                return false;
             }
-            return false;
+        break;
     }
     return true;
 }
