@@ -10,8 +10,8 @@ COMB(hnEnter,     KC_ENT,                KC_H, KC_N) // enter
 COMB(hySftEnter,  LSFT(KC_ENT),          KC_H, KC_Y) // shift enter
 COMB(klDel,       KC_DEL,                KC_K, KC_L) // forward delete
 COMB(kjSpace,     KC_SPC,                KC_K, KC_J) // space
-COMB(arrUp,       KC_UP,                 KC_E, KC_R) // ↑ arrow up
-COMB(arrDn,       KC_DOWN,               KC_D, KC_F) // ↓ arrow down
+// COMB(arrUp,       KC_UP,                 KC_E, KC_R) // ↑ arrow up // don't set er combo as it's a common roll
+// COMB(arrDn,       KC_DOWN,               KC_D, KC_F) // ↓ arrow down
 COMB(arrRght,     KC_RIGHT,              KC_R, KC_F) // → arrow right
 COMB(arrLft,      KC_LEFT,               KC_E, KC_D) // ← arrow left
 COMB(kiAltRight,  RALT(KC_RIGHT),        KC_K, KC_I) // alt right (move, select, tabs, etc.)
