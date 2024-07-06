@@ -13,7 +13,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_split_3x5_2(
-        KC_Q,           KC_W,           KC_E,   KC_R,   KC_T,            KC_Y,   KC_U,   KC_I,      KC_O,             KC_P,
+        LCMD_T(KC_Q),   KC_W,           KC_E,   KC_R,   KC_T,            KC_Y,   KC_U,   KC_I,      KC_O,             KC_P,
         LCMD_T(KC_A),   KC_S,           KC_D,   KC_F,   KC_G,            KC_H,   KC_J,   KC_K,      KC_L,             RALT_T(KC_SCLN),
         LSFT_T(KC_Z),   LCTL_T(KC_X),   KC_C,   KC_V,   KC_B,            KC_N,   KC_M,   KC_COMM,   RCTL_T(KC_DOT),   RSFT_T(KC_SLSH),
         
@@ -169,43 +169,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 // RGBLIGHT TIMEOUT
 
-static uint32_t key_timer;           // timer for last keyboard activity, use 32bit value and function to make longer idle time possible
-static void refresh_rgb(void);       // refreshes the activity timer and RGB, invoke whenever any activity happens
-static void check_rgb_timeout(void); // checks if enough time has passed for RGB to timeout
-bool is_rgb_timeout = false;         // store if RGB has timed out or not in a boolean
+bool is_rgb_timedout = false;
 
-void refresh_rgb(void) {
-    key_timer = timer_read32(); // store time of last refresh
-    if (is_rgb_timeout)
-    {
-        is_rgb_timeout = false;
-        rgblight_wakeup();
-    }
-}
-void check_rgb_timeout(void) {
-    if (!is_rgb_timeout && timer_elapsed32(key_timer) > RGBLIGHT_TIMEOUT) // check if RGB has already timeout and if enough time has passed
-    {
-        rgblight_suspend();
-        is_rgb_timeout = true;
-    }
-}
 /* Then, call the above functions from QMK's built in post processing functions like so */
 /* Runs at the end of each scan loop, check if RGB timeout has occured or not */
 void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_TIMEOUT
-    check_rgb_timeout();
-#endif
-}
-/* Runs after each key press, check if activity occurred */
-void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-#ifdef RGBLIGHT_TIMEOUT
-    if (record->event.pressed)
-        refresh_rgb();
-#endif
-}
-/* Runs after each encoder tick, check if activity occurred */
-void post_encoder_update_user(uint8_t index, bool clockwise) {
-#ifdef RGBLIGHT_TIMEOUT
-    refresh_rgb();
+    if (!is_rgb_timedout && last_input_activity_elapsed() > RGBLIGHT_TIMEOUT) {
+        rgblight_suspend();
+        is_rgb_timedout = true;
+    } else if (is_rgb_timedout && last_input_activity_elapsed() > RGBLIGHT_TIMEOUT) {
+        rgblight_wakeup();
+        is_rgb_timedout = false;
+    }
 #endif
 }
